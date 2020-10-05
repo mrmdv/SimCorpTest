@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using SimCorpTst.Implementations;
+using SimCorpTst.Interfaces;
 
 namespace SimCorpTst
 {
@@ -8,7 +9,9 @@ namespace SimCorpTst
     {
         static void Main(string[] args)
         {
-            var annuityRepaymentCalculator = new AnnuityRepaymentSchedule(new DateTime(2020, 01, 01), new DateTime(2020, 01, 15), 10000.0, 0.15, 5);
+            // interface/class for all calculation 
+            // constructor params Agreement date, Calculation date, X (Investment amount), R (Interest rate), N (Incvestment period - years)
+            IAnnuityRepaymentSchedule annuityRepaymentCalculator = new AnnuityRepaymentSchedule(new DateTime(2020, 01, 01), new DateTime(2020, 01, 15), 10000.0, 0.15, 5);
 
             int i = 1;
             Console.WriteLine($"Agreement Date:{annuityRepaymentCalculator.AgreementDate.ToString("yyyy-MM-dd")}  Monthly refund: {annuityRepaymentCalculator.MonthlyPaymentAmount.ToString("0.00")}");
